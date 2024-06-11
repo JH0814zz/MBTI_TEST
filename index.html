@@ -1,61 +1,88 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>환영합니다</title>
+    <title>MBTI 검사</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-        nav {
-            text-align: center;
-            margin: 20px 0;
-        }
-        nav a {
-            margin: 0 10px;
-            color: #333;
-            text-decoration: none;
-        }
-        main {
-            padding: 20px;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .question { margin-bottom: 15px; }
+        .result { margin-top: 20px; font-weight: bold; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>배재현</h1>
-    </header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
-    </nav>
-    <main>
-        <h2>About Me</h2>
-        <p>This is a paragraph about me. Here you can write something about yourself.</p>
-    </main>
-    <footer>
-        <p>&copy; 2024 My GitHub Pages Site</p>
-    </footer>
+    <h1>MBTI 검사</h1>
+    <form id="mbtiForm">
+        <div class="question">
+            <p>1. 나는 외향적인 편이다.</p>
+            <label><input type="radio" name="q1" value="E"> 그렇다</label>
+            <label><input type="radio" name="q1" value="I"> 아니다</label>
+        </div>
+        <div class="question">
+            <p>2. 나는 계획적으로 일을 처리한다.</p>
+            <label><input type="radio" name="q2" value="J"> 그렇다</label>
+            <label><input type="radio" name="q2" value="P"> 아니다</label>
+        </div>
+        <div class="question">
+            <p>3. 나는 감정에 민감하다.</p>
+            <label><input type="radio" name="q3" value="F"> 그렇다</label>
+            <label><input type="radio" name="q3" value="T"> 아니다</label>
+        </div>
+        <div class="question">
+            <p>4. 나는 현실적이다.</p>
+            <label><input type="radio" name="q4" value="S"> 그렇다</label>
+            <label><input type="radio" name="q4" value="N"> 아니다</label>
+        </div>
+        <div class="question">
+            <p>5. 나는 사교적이다.</p>
+            <label><input type="radio" name="q5" value="E"> 그렇다</label>
+            <label><input type="radio" name="q5" value="I"> 아니다</label>
+        </div>
+        <div class="question">
+            <p>6. 나는 감정적으로 반응한다.</p>
+            <label><input type="radio" name="q6" value="F"> 그렇다</label>
+            <label><input type="radio" name="q6" value="T"> 아니다</label>
+        </div>
+        <div class="question">
+            <p>7. 나는 계획을 세우는 것을 좋아한다.</p>
+            <label><input type="radio" name="q7" value="J"> 그렇다</label>
+            <label><input type="radio" name="q7" value="P"> 아니다</label>
+        </div>
+        <div class="question">
+            <p>8. 나는 창의적이다.</p>
+            <label><input type="radio" name="q8" value="N"> 그렇다</label>
+            <label><input type="radio" name="q8" value="S"> 아니다</label>
+        </div>
+        <div class="question">
+            <p>9. 나는 조용한 편이다.</p>
+            <label><input type="radio" name="q9" value="I"> 그렇다</label>
+            <label><input type="radio" name="q9" value="E"> 아니다</label>
+        </div>
+        <div class="question">
+            <p>10. 나는 논리적으로 생각한다.</p>
+            <label><input type="radio" name="q10" value="T"> 그렇다</label>
+            <label><input type="radio" name="q10" value="F"> 아니다</label>
+        </div>
+        <button type="button" onclick="calculateMBTI()">결과 보기</button>
+    </form>
+    <div class="result" id="result"></div>
+
+    <script>
+        function calculateMBTI() {
+            const form = document.forms["mbtiForm"];
+            const answers = {
+                E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0
+            };
+
+            for (let i = 1; i <= 10; i++) {
+                const question = `q${i}`;
+                const answer = form.elements[question].value;
+                answers[answer]++;
+            }
+
+            const result = `${answers.E > answers.I ? 'E' : 'I'}${answers.S > answers.N ? 'S' : 'N'}${answers.T > answers.F ? 'T' : 'F'}${answers.J > answers.P ? 'J' : 'P'}`;
+            document.getElementById("result").innerText = `당신의 MBTI 유형은 ${result}입니다.`;
+        }
+    </script>
 </body>
 </html>
