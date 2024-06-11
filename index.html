@@ -1,107 +1,207 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MBTI 검사</title>
+    <title>MBTI 테스트</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .question { margin-bottom: 15px; }
-        .result { margin-top: 20px; font-weight: bold; }
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #questions {
+            margin-bottom: 20px;
+        }
+        #questions div {
+            margin-bottom: 10px;
+        }
+        #resultArea {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
-    <h1>MBTI 검사</h1>
+    <h2>MBTI 테스트</h2>
     <form id="mbtiForm">
-        <div class="question">
-            <p>1. 나는 외향적인 편이다.</p>
-            <label><input type="radio" name="q1" value="E"> 그렇다</label>
-            <label><input type="radio" name="q1" value="I"> 아니다</label>
+        <label for="name">이름:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <h3>질문에 대한 답변을 선택해주세요:</h3>
+
+        <!-- 문항 선택을 위한 영역 -->
+        <div id="questions">
+            <div>
+                <p>Q1: 친구들과 시간을 보내는 것을 좋아한다. / 혼자 시간을 보내는 것을 좋아한다.</p>
+                <label><input type="radio" name="q1" value="E"> 1: 친구들과 시간을 보내는 것을 좋아한다.</label>
+                <label><input type="radio" name="q1" value="I"> 2: 혼자 시간을 보내는 것을 좋아한다.</label>
+            </div>
+            <div>
+                <p>Q2: 파티에서 에너지를 얻는다. / 조용한 환경에서 에너지를 얻는다.</p>
+                <label><input type="radio" name="q2" value="E"> 1: 파티에서 에너지를 얻는다.</label>
+                <label><input type="radio" name="q2" value="I"> 2: 조용한 환경에서 에너지를 얻는다.</label>
+            </div>
+            <div>
+                <p>Q3: 낯선 사람과 쉽게 대화할 수 있다. / 낯선 사람과 대화하는 것이 어렵다.</p>
+                <label><input type="radio" name="q3" value="E"> 1: 낯선 사람과 쉽게 대화할 수 있다.</label>
+                <label><input type="radio" name="q3" value="I"> 2: 낯선 사람과 대화하는 것이 어렵다.</label>
+            </div>
+            <div>
+                <p>Q4: 다른 사람들과 협력하는 것이 편하다. / 혼자 일하는 것이 더 편하다.</p>
+                <label><input type="radio" name="q4" value="E"> 1: 다른 사람들과 협력하는 것이 편하다.</label>
+                <label><input type="radio" name="q4" value="I"> 2: 혼자 일하는 것이 더 편하다.</label>
+            </div>
+            <div>
+                <p>Q5: 대화에서 주도권을 잡는다. / 대화에서 듣는 편이다.</p>
+                <label><input type="radio" name="q5" value="E"> 1: 대화에서 주도권을 잡는다.</label>
+                <label><input type="radio" name="q5" value="I"> 2: 대화에서 듣는 편이다.</label>
+            </div>
+            <div>
+                <p>Q6: 세부 사항에 주목하는 편이다. / 전체적인 그림을 보는 편이다.</p>
+                <label><input type="radio" name="q6" value="S"> 1: 세부 사항에 주목하는 편이다.</label>
+                <label><input type="radio" name="q6" value="N"> 2: 전체적인 그림을 보는 편이다.</label>
+            </div>
+            <div>
+                <p>Q7: 현재에 집중하는 편이다. / 미래를 계획하는 편이다.</p>
+                <label><input type="radio" name="q7" value="S"> 1: 현재에 집중하는 편이다.</label>
+                <label><input type="radio" name="q7" value="N"> 2: 미래를 계획하는 편이다.</label>
+            </div>
+            <div>
+                <p>Q8: 실제 경험을 선호한다. / 추상적인 아이디어를 선호한다.</p>
+                <label><input type="radio" name="q8" value="S"> 1: 실제 경험을 선호한다.</label>
+                <label><input type="radio" name="q8" value="N"> 2: 추상적인 아이디어를 선호한다.</label>
+            </div>
+            <div>
+                <p>Q9: 사실을 중시한다. / 직관을 중시한다.</p>
+                <label><input type="radio" name="q9" value="S"> 1: 사실을 중시한다.</label>
+                <label><input type="radio" name="q9" value="N"> 2: 직관을 중시한다.</label>
+            </div>
+            <div>
+                <p>Q10: 현실적인 접근을 선호한다. / 창의적인 접근을 선호한다.</p>
+                <label><input type="radio" name="q10" value="S"> 1: 현실적인 접근을 선호한다.</label>
+                <label><input type="radio" name="q10" value="N"> 2: 창의적인 접근을 선호한다.</label>
+            </div>
+            <div>
+                <p>Q11: 논리적으로 결정을 내린다. / 감정적으로 결정을 내린다.</p>
+                <label><input type="radio" name="q11" value="T"> 1: 논리적으로 결정을 내린다.</label>
+                <label><input type="radio" name="q11" value="F"> 2: 감정적으로 결정을 내린다.</label>
+            </div>
+            <div>
+                <p>Q12: 사실과 데이터를 중요시한다. / 사람들의 감정을 중요시한다.</p>
+                <label><input type="radio" name="q12" value="T"> 1: 사실과 데이터를 중요시한다.</label>
+                <label><input type="radio" name="q12" value="F"> 2: 사람들의 감정을 중요시한다.</label>
+            </div>
+            <div>
+                <p>Q13: 공정한 평가를 중시한다. / 동정심을 중시한다.</p>
+                <label><input type="radio" name="q13" value="T"> 1: 공정한 평가를 중시한다.</label>
+                <label><input type="radio" name="q13" value="F"> 2: 동정심을 중시한다.</label>
+            </div>
+            <div>
+                <p>Q14: 비판적인 피드백을 수용할 수 있다. / 비판적인 피드백에 민감하다.</p>
+                <label><input type="radio" name="q14" value="T"> 1: 비판적인 피드백을 수용할 수 있다.</label>
+                <label><input type="radio" name="q14" value="F"> 2: 비판적인 피드백에 민감하다.</label>
+            </div>
+            <div>
+                <p>Q15: 논쟁에서 이기는 것이 중요하다. / 논쟁에서 사람들의 감정을 상하지 않는 것이 중요하다.</p>
+                <label><input type="radio" name="q15" value="T"> 1: 논쟁에서 이기는 것이 중요하다.</label>
+                <label><input type="radio" name="q15" value="F"> 2: 논쟁에서 사람들의 감정을 상하지 않는 것이 중요하다.</label>
+            </div>
+            <div>
+                <p>Q16: 계획을 세우고 따르는 것을 좋아한다. / 유연하게 계획을 변경하는 것을 좋아한다.</p>
+                <label><input type="radio" name="q16" value="J"> 1: 계획을 세우고 따르는 것을 좋아한다.</label>
+                <label><input type="radio" name="q16" value="P"> 2: 유연하게 계획을 변경하는 것을 좋아한다.</label>
+            </div>
+            <div>
+                <p>Q17: 정돈된 환경을 선호한다. / 즉흥적인 환경을 선호한다.</p>
+                <label><input type="radio" name="q17" value="J"> 1: 정돈된 환경을 선호한다.</label>
+                <label><input type="radio" name="q17" value="P"> 2: 즉흥적인 환경을 선호한다.</label>
+            </div>
+            <div>
+                <p>Q18: 마감 기한을 엄수한다. / 마감 기한에 유연하다.</p>
+                <label><input type="radio" name="q18" value="J"> 1: 마감 기한을 엄수한다.</label>
+                <label><input type="radio" name="q18" value="P"> 2: 마감 기한에 유연하다.</label>
+            </div>
+            <div>
+                <p>Q19: 정해진 일정에 따라 움직인다. / 그때그때 상황에 따라 움직인다.</p>
+                <label><input type="radio" name="q19" value="J"> 1: 정해진 일정에 따라 움직인다.</label>
+                <label><input type="radio" name="q19" value="P"> 2: 그때그때 상황에 따라 움직인다.</label>
+            </div>
+            <div>
+                <p>Q20: 결정을 빨리 내린다. / 결정을 미루는 편이다.</p>
+                <label><input type="radio" name="q20" value="J"> 1: 결정을 빨리 내린다.</label>
+                <label><input type="radio" name="q20" value="P"> 2: 결정을 미루는 편이다.</label>
+            </div>
         </div>
-        <div class="question">
-            <p>2. 나는 계획적으로 일을 처리한다.</p>
-            <label><input type="radio" name="q2" value="J"> 그렇다</label>
-            <label><input type="radio" name="q2" value="P"> 아니다</label>
-        </div>
-        <div class="question">
-            <p>3. 나는 감정에 민감하다.</p>
-            <label><input type="radio" name="q3" value="F"> 그렇다</label>
-            <label><input type="radio" name="q3" value="T"> 아니다</label>
-        </div>
-        <div class="question">
-            <p>4. 나는 현실적이다.</p>
-            <label><input type="radio" name="q4" value="S"> 그렇다</label>
-            <label><input type="radio" name="q4" value="N"> 아니다</label>
-        </div>
-        <div class="question">
-            <p>5. 나는 사교적이다.</p>
-            <label><input type="radio" name="q5" value="E"> 그렇다</label>
-            <label><input type="radio" name="q5" value="I"> 아니다</label>
-        </div>
-        <div class="question">
-            <p>6. 나는 감정적으로 반응한다.</p>
-            <label><input type="radio" name="q6" value="F"> 그렇다</label>
-            <label><input type="radio" name="q6" value="T"> 아니다</label>
-        </div>
-        <div class="question">
-            <p>7. 나는 계획을 세우는 것을 좋아한다.</p>
-            <label><input type="radio" name="q7" value="J"> 그렇다</label>
-            <label><input type="radio" name="q7" value="P"> 아니다</label>
-        </div>
-        <div class="question">
-            <p>8. 나는 창의적이다.</p>
-            <label><input type="radio" name="q8" value="N"> 그렇다</label>
-            <label><input type="radio" name="q8" value="S"> 아니다</label>
-        </div>
-        <div class="question">
-            <p>9. 나는 조용한 편이다.</p>
-            <label><input type="radio" name="q9" value="I"> 그렇다</label>
-            <label><input type="radio" name="q9" value="E"> 아니다</label>
-        </div>
-        <div class="question">
-            <p>10. 나는 논리적으로 생각한다.</p>
-            <label><input type="radio" name="q10" value="T"> 그렇다</label>
-            <label><input type="radio" name="q10" value="F"> 아니다</label>
-        </div>
-        <button type="button" onclick="calculateMBTI()">결과 보기</button>
+
+        <button type="button" onclick="submitForm()">결과 확인</button>
     </form>
-    <div class="result" id="result"></div>
+    <!-- 결과 표시를 위한 영역 -->
+    <div id="resultArea"></div>
 
     <script>
-        function calculateMBTI() {
-            const form = document.forms["mbtiForm"];
-            const answers = {
-                E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0
-            };
+        function submitForm() {
+            var formData = new FormData(document.getElementById("mbtiForm"));
+            var data = {};
+            formData.forEach(function (value, key) {
+                data[key] = value;
+            });
 
-            for (let i = 1; i <= 10; i++) {
-                const question = `q${i}`;
-                const answer = form.elements[question].value;
-                answers[answer]++;
+            // 사용자의 이름 가져오기
+            var userName = document.getElementById("name").value;
+
+            // 사용자의 선택 결과 계산
+            var selectedType = calculateSelectedType(data);
+            console.log(selectedType);
+
+            // 결과를 표시하는 영역에 메시지 추가
+            var resultArea = document.getElementById("resultArea");
+            resultArea.innerHTML = "<h3>결과보기</h3>";
+
+            // MBTI 유형에 따른 링크 및 결과 출력
+            var mbtiLink = "https://www.16personalities.com/ko/성격유형-" + selectedType.toLowerCase();
+            resultArea.innerHTML += "<p>" + userName + "님의 MBTI 검사 결과는 <strong>" + selectedType.toUpperCase() + "</strong>입니다. " +
+                "자세한 사항은 <a href='" + mbtiLink + "'>" + mbtiLink + "</a>를 참고해 주세요.</p>";
+        }
+
+        function calculateSelectedType(data) {
+            var selectedType = '';
+            var eCount = 0, iCount = 0, sCount = 0, nCount = 0, tCount = 0, fCount = 0, jCount = 0, pCount = 0;
+            for (var key in data) {
+                if (data.hasOwnProperty(key)) {
+                    switch (data[key]) {
+                        case 'E':
+                            eCount++;
+                            break;
+                        case 'I':
+                            iCount++;
+                            break;
+                        case 'S':
+                            sCount++;
+                            break;
+                        case 'N':
+                            nCount++;
+                            break;
+                        case 'T':
+                            tCount++;
+                            break;
+                        case 'F':
+                            fCount++;
+                            break;
+                        case 'J':
+                            jCount++;
+                            break;
+                        case 'P':
+                            pCount++;
+                            break;
+                    }
+                }
             }
 
-            const result = `${answers.E > answers.I ? 'E' : 'I'}${answers.S > answers.N ? 'S' : 'N'}${answers.T > answers.F ? 'T' : 'F'}${answers.J > answers.P ? 'J' : 'P'}`;
-            document.getElementById("result").innerText = `당신의 MBTI 유형은 ${result}입니다.`;
+            // 각 유형별로 가장 많이 선택된 것을 찾음
+            selectedType += (eCount > iCount) ? 'E' : 'I';
+            selectedType += (sCount > nCount) ? 'S' : 'N';
+            selectedType += (tCount > fCount) ? 'T' : 'F';
+            selectedType += (jCount > pCount) ? 'J' : 'P';
+
+            return selectedType;
         }
     </script>
-    <p>MIT License
-
-
-Copyright (c) 2024 JAE HYUN BAE.
-
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-
-of this software and associated documentation files (the "Website"), to deal
-
-in the Software without restriction, including without limitation the rights
-
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-
-copies of the Software, and to permit persons to whom the Software is
-
-furnished to do so, subject to the following conditions
-
-</p>
 </body>
 </html>
