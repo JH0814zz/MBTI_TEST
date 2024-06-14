@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MBTI 테스트</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Consolas, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
         }
         h2 {
             text-align: center;
+            margin-top: 20px;
         }
         #mbtiForm {
             max-width: 600px;
@@ -16,14 +21,14 @@
             padding: 20px;
             border: 2px solid #ccc;
             border-radius: 10px;
-            background-color: #f9f9f9;
+            background-color: #fff;
         }
         #mbtiForm label {
             display: block;
             margin-bottom: 10px;
         }
         #mbtiForm input[type="text"] {
-            width: 100%;
+            width: calc(100% - 22px);
             padding: 10px;
             margin-bottom: 20px;
             border: 1px solid #ccc;
@@ -34,10 +39,11 @@
             border: 2px solid #ccc;
             border-radius: 10px;
             padding: 10px;
-            background-color: #fff;
+            background-color: #f9f9f9;
         }
         .question p {
             font-weight: bold;
+            margin-bottom: 5px;
         }
         .answer {
             margin-bottom: 10px;
@@ -48,6 +54,25 @@
         }
         #resultArea {
             margin-top: 20px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -55,11 +80,10 @@
     <h2>MBTI 테스트</h2>
     <form id="mbtiForm">
         <label for="name">이름:</label>
-        <input type="text" id="name" name="name" required><br><br>
+        <input type="text" id="name" name="name" required>
 
         <h3>질문에 대한 답변을 선택해주세요:</h3>
 
-        <!-- 문항 선택을 위한 영역 -->
         <div id="questions">
             <div class="question">
                 <div>
@@ -163,13 +187,9 @@
                     <label><input type="radio" name="q20" value="P"> 2: 결정을 미루는 편이다.</label>
                 </div>
             </div>
-            </div>
-            <!-- 나머지 문항들은 이와 같은 형식으로 추가 -->
-        </div>
 
         <button type="button" onclick="submitForm()">결과 확인</button>
     </form>
-    <!-- 결과 표시를 위한 영역 -->
     <div id="resultArea"></div>
 
     <script>
@@ -241,5 +261,6 @@
         }
     </script>
     <p>MIT License Copyright (c) 2024 JAE HYUN BAE. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Website"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions</p>
+</body>
 </body>
 </html>
