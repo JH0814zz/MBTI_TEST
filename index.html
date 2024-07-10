@@ -5,32 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MBTI 테스트</title>
     <style>
+        /* 전체 body 스타일 */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #f2f2f2;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
         
+        /* 테스트 폼을 감싸는 컨테이너 */
+        .container {
+            max-width: 800px;
+            width: 90%;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin: 20px;
+        }
+        
+        /* 제목 스타일 */
         h2 {
             text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        /* 폼 스타일 */
+        #mbtiForm {
             margin-top: 20px;
         }
         
-        #mbtiForm {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        
+        /* 입력 필드와 라벨 스타일 */
         #mbtiForm label {
             display: block;
             margin-bottom: 10px;
+            font-weight: bold;
         }
         
         #mbtiForm input[type="text"],
@@ -40,12 +54,14 @@
             margin-bottom: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            font-size: 16px;
         }
         
+        /* 질문 스타일 */
         .question {
             margin-bottom: 20px;
-            padding: 10px;
-            border: 2px solid #ccc;
+            padding: 15px;
+            border: 1px solid #ccc;
             border-radius: 10px;
             background-color: #f9f9f9;
         }
@@ -53,26 +69,52 @@
         .question p {
             font-weight: bold;
             margin-bottom: 10px;
+            font-size: 18px;
+            color: #555;
         }
         
         .answer label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-size: 16px;
         }
         
+        /* 결과 영역 스타일 */
         #resultArea {
             margin-top: 20px;
             text-align: center;
         }
         
+        #resultArea h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        #resultArea p {
+            font-size: 18px;
+            color: #444;
+            line-height: 1.6;
+        }
+        
+        #resultArea a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        #resultArea a:hover {
+            text-decoration: underline;
+        }
+        
+        /* 버튼 스타일 */
         button {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 12px 24px;
             background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 16px;
             transition: background-color 0.3s;
         }
         
@@ -80,13 +122,24 @@
             background-color: #45a049;
         }
         
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
+        /* 반응형 스타일링 */
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
         
-        a:hover {
-            text-decoration: underline;
+            .question p {
+                font-size: 16px;
+            }
+        
+            .answer label {
+                font-size: 14px;
+            }
+        
+            button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
         }
 
     </style>
